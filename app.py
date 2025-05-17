@@ -50,7 +50,7 @@ st.markdown("""
 recommender_jaccard = PerfumeRecommender('perfume_dataset_final.csv')
 recommender_cosine = PerfumeRecommenderCosine('perfume_dataset_final_cosine.csv')
 
-st.title('Sistem Rekomendasi Parfum')
+st.title('Aromaku: Sistem Rekomendasi Parfum')
 
 st.markdown("""
 Temukan parfum yang sesuai untuk Anda berdasarkan preferensi pribadi! ✨
