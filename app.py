@@ -77,7 +77,7 @@ with col_data:
         - Parfum Unisex: {len(recommender_jaccard.df[recommender_jaccard.df['Gender'] == 'unisex'])}
         """)
 
-st.markdown("### 🧠 Pilih Metode Similarity")
+st.markdown("### 🔍 Pilih Metode Similarity")
 similarity_method = st.radio(
     "Metode mana yang ingin Anda gunakan untuk menghitung kemiripan parfum?",
     options=["Jaccard", "Cosine"],
