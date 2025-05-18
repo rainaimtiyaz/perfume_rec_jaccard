@@ -39,7 +39,7 @@ class PerfumeRecommender:
         print(f"\nInitial filter count: {len(filtered_df)}")
 
         for i, keyword in enumerate(desc_keywords):
-            if keyword == 'lokal' or 'indo':
+            if keyword == 'lokal':
                 filtered_df = filtered_df[filtered_df['Negara'].str.lower().str.contains('indonesia', na=False)]
                 print(f"After lokal filter ({i+1}/{len(desc_keywords)}): {len(filtered_df)} rows")
             else:
@@ -113,7 +113,7 @@ class PerfumeRecommender:
             rating_filter = {'type': 'below', 'value': float(rating_below.group(1))}
             text = text.replace(rating_below.group(0), '')
 
-        if 'lokal' in text or 'indo' in text:
+        if 'lokal' in text or 'local' in text:
             keywords.append('lokal')
             text = re.sub(r'(lokal|local)', '', text)
 
