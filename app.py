@@ -44,6 +44,33 @@ st.markdown("""
         .st-emotion-cache-5rimss.e1nzilvr5 {
             margin-bottom: 1rem;
         }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 300px;
+            background-color: #555;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -150px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -77,7 +104,16 @@ with col_data:
         - Parfum Unisex: {len(recommender_jaccard.df[recommender_jaccard.df['Gender'] == 'unisex'])}
         """)
 
-st.markdown("### 🔍 Pilih Metode Similarity")
+st.markdown("""
+<div class="tooltip">
+    <h3>🔍 Pilih Metode Similarity</h3>
+    <span class="tooltiptext">
+        - Jaccard: Melihat berapa banyak keyword yang benar-benar sama antara input user dengan master data<br>
+        - Cosine: Melihat seberapa mirip kecenderungan keyword antara input user dengan master data, meskipun tidak semua keyword sama
+    </span>
+</div>
+""", unsafe_allow_html=True)
+
 similarity_method = st.radio(
     "Metode mana yang ingin Anda gunakan untuk menghitung kemiripan parfum?",
     options=["Jaccard", "Cosine"],
