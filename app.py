@@ -45,35 +45,28 @@ st.markdown("""
             margin-bottom: 1rem;
         }
         .tooltip {
-            display: inline-block;
             position: relative;
+            display: inline-block;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            color: #1E90FF;
-            margin-left: 4px;
         }
-
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 320px;
-            background-color: #f9f9f9;
-            color: #333;
+            width: 300px;
+            background-color: #555;
+            color: #fff;
             text-align: left;
             border-radius: 6px;
-            border: 1px solid #ccc;
             padding: 10px;
             position: absolute;
             z-index: 1;
-            top: 120%;
+            bottom: 125%;
             left: 50%;
-            transform: translateX(-50%);
+            margin-left: -150px;
             opacity: 0;
             transition: opacity 0.3s;
-            font-size: 0.85rem;
-            box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+            font-size: 14px;
+            font-weight: normal;
         }
-
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
@@ -112,14 +105,12 @@ with col_data:
         """)
 
 st.markdown("""
-<div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 0rem;">
-    <span style="font-size: 1.7rem; font-weight: 600.1;">🔍 Pilih Metode Similarity</span>
-    <div class="tooltip">ℹ️
-        <span class="tooltiptext">
-            - <strong>Jaccard</strong>: Melihat berapa banyak keyword yang benar-benar sama antara input user dengan master data<br>
-            - <strong>Cosine</strong>: Melihat seberapa mirip kecenderungan keyword antara input user dengan master data, meskipun tidak semua keyword sama
-        </span>
-    </div>
+<div class="tooltip">
+    <h3>🔍 Pilih Metode Similarity</h3>
+    <span class="tooltiptext">
+        - Jaccard: Melihat berapa banyak keyword yang benar-benar sama antara input user dengan master data<br>
+        - Cosine: Melihat seberapa mirip kecenderungan keyword antara input user dengan master data, meskipun tidak semua keyword sama
+    </span>
 </div>
 """, unsafe_allow_html=True)
 
